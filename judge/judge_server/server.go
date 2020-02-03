@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"log"
 	"net"
@@ -11,6 +12,10 @@ import (
 )
 
 type server struct{}
+
+func (*server) StartGameService(ctx context.Context, req *StartGameRequest) (*StartGameResponse, error) {
+
+}
 
 func main() {
 	fmt.Println("This is the server part of werewolf_be")
