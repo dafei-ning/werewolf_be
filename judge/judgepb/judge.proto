@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+package judge;
+option go_package = 'judgepb';
+
+service ServiceName {
+}
