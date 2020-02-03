@@ -1,0 +1,1 @@
+back end of werewolf_kill

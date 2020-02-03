@@ -26,7 +26,7 @@ message StartGameResponse {
     string response_startgame = 1;
 }
 
-service ServiceName {
+service StartNewGame {
     // Unary 开始游戏
     rpc StartGame (StartGameRequest) returns (StartGameResponse) {}
 }
