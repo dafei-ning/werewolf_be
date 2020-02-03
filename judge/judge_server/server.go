@@ -13,8 +13,8 @@ import (
 
 type server struct{}
 
-func (*server) StartGameService(ctx context.Context, req *StartGameRequest) (*StartGameResponse, error) {
-
+func (*server) StartGameService(ctx context.Context, req *judgepb.StartGameRequest) (*judgepb.StartGameResponse, error) {
+	return nil, nil
 }
 
 func main() {
