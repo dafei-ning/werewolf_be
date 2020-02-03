@@ -27,4 +27,6 @@ message StartGameResponse {
 }
 
 service ServiceName {
+    // Unary 开始游戏
+    rpc StartGame (StartGameRequest) returns (StartGameResponse) {}
 }
