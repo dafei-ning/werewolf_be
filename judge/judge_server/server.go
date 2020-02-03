@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net"
+	"strconv"
 
 	"../judgepb"
 
@@ -14,7 +15,13 @@ import (
 type server struct{}
 
 func (*server) StartGameService(ctx context.Context, req *judgepb.StartGameRequest) (*judgepb.StartGameResponse, error) {
-	return nil, nil
+	playerAmount := req.GetNewGameInfo().GetPlayerAmount()
+	//gamePattern := req.GetNewGameInfo().GetGamePattern()
+	result := "Player amount is " + strconv.Itoa(int(playerAmount)) + ". The game pattern is "
+	res := &judgepb.StartGameResponse{
+		ResponseStartgame: result,
+	}
+	return res, nil
 }
 
 func main() {

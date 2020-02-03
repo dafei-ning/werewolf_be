@@ -4,7 +4,7 @@ package judge;
 option go_package = 'judgepb';
 
 message NewGameInfo {
-    int32 playerAmount = 1;
+    int32 player_amount = 1;
     enum GamePattern {
         CHARMWOLF_GUARD = 0;
         BLACKMARKETER_BROS = 1;
@@ -15,7 +15,7 @@ message NewGameInfo {
         SWHI = 6;
         SWGHI3 = 7;
     }
-    GamePattern gamePattern = 2;
+    GamePattern game_pattern = 2;
 }
 
 message StartGameRequest {
