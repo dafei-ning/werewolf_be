@@ -3,5 +3,28 @@ syntax = "proto3";
 package judge;
 option go_package = 'judgepb';
 
+message NewGameInfo {
+    int32 playerAmount = 1;
+    enum GamePattern {
+        CHARMWOLF_GUARD = 0;
+        BLACKMARKETER_BROS = 1;
+        BLOOD_WITCHER = 2;
+        CUPID_ROBBER = 3;
+        NIGHTMARE_GUARD = 4;
+        SHADOW_AVENGER = 5;
+        SWHI = 6;
+        SWGHI3 = 7;
+    }
+    GamePattern gamePattern = 2;
+}
+
+message StartGameRequest {
+    NewGameInfo new_game_info = 1;
+}
+
+message StartGameResponse {
+    string response_startgame = 1;
+}
+
 service ServiceName {
 }
