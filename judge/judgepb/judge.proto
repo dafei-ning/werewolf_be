@@ -3,18 +3,28 @@ syntax = "proto3";
 package judge;
 option go_package = 'judgepb';
 
+enum GamePattern {
+    CHARMWOLF_GUARD = 0;
+    BLACKMARKETER_BROS = 1;
+    BLOOD_WITCHER = 2;
+    CUPID_ROBBER = 3;
+    NIGHTMARE_GUARD = 4;
+    SHADOW_AVENGER = 5;
+    SWHI = 6;
+    SWGHI3 = 7;
+}
+
+message Password {
+    int32 num1 = 1;
+    int32 num2 = 2;
+    int32 num3 = 3;
+    int32 num4 = 4;
+    int32 num5 = 5;
+    int32 num6 = 6;
+}
+
 message NewGameInfo {
     int32 player_amount = 1;
-    enum GamePattern {
-        CHARMWOLF_GUARD = 0;
-        BLACKMARKETER_BROS = 1;
-        BLOOD_WITCHER = 2;
-        CUPID_ROBBER = 3;
-        NIGHTMARE_GUARD = 4;
-        SHADOW_AVENGER = 5;
-        SWHI = 6;
-        SWGHI3 = 7;
-    }
     GamePattern game_pattern = 2;
 }
 
@@ -22,8 +32,12 @@ message StartGameRequest {
     NewGameInfo new_game_info = 1;
 }
 
+
 message StartGameResponse {
     string response_startgame = 1;
+    int32 player_amount = 2;
+    GamePattern gamePattern = 3;
+    Password new_game_password = 4;
 }
 
 service StartNewGame {
