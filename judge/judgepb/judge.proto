@@ -36,7 +36,7 @@ message StartGameRequest {
 message StartGameResponse {
     string response_startgame = 1;
     int32 player_amount = 2;
-    GamePattern gamePattern = 3;
+    GamePattern game_pattern = 3;
     Password new_game_password = 4;
 }
 

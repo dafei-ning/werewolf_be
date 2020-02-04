@@ -16,10 +16,13 @@ type server struct{}
 
 func (*server) StartGameService(ctx context.Context, req *judgepb.StartGameRequest) (*judgepb.StartGameResponse, error) {
 	playerAmount := req.GetNewGameInfo().GetPlayerAmount()
-	//gamePattern := req.GetNewGameInfo().GetGamePattern()
+	gamePattern := req.GetNewGameInfo().GetGamePattern()
 	result := "Player amount is " + strconv.Itoa(int(playerAmount)) + ". The game pattern is "
 	res := &judgepb.StartGameResponse{
 		ResponseStartgame: result,
+		PlayerAmount:      playerAmount,
+		GamePattern:       gamePattern,
+		NewGamePassword:   "123456",
 	}
 	return res, nil
 }
