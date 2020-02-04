@@ -14,15 +14,24 @@ import (
 
 type server struct{}
 
+// 房主创建房间以后，server 会根据所发送的 req 返回 开房信息，其中包括房间的密码
 func (*server) StartGameService(ctx context.Context, req *judgepb.StartGameRequest) (*judgepb.StartGameResponse, error) {
 	playerAmount := req.GetNewGameInfo().GetPlayerAmount()
 	gamePattern := req.GetNewGameInfo().GetGamePattern()
 	result := "Player amount is " + strconv.Itoa(int(playerAmount)) + ". The game pattern is "
+
 	res := &judgepb.StartGameResponse{
 		ResponseStartgame: result,
 		PlayerAmount:      playerAmount,
 		GamePattern:       gamePattern,
-		NewGamePassword:   "123456",
+		NewGamePassword: &judgepb.Password{
+			Num1: 1,
+			Num2: 2,
+			Num3: 3,
+			Num4: 4,
+			Num5: 5,
+			Num6: 6,
+		},
 	}
 	return res, nil
 }
